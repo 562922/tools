@@ -6,6 +6,9 @@
 //I will put updates here for out-of-date sites
 
 //DO NOT DELETE
+// Multiple CDN tags can exist on old forks. Only let the first successful copy run.
+if (!window.__mountain658UiUpdatesLoaded) {
+window.__mountain658UiUpdatesLoaded = true;
 (function() {
   const NEW_CHAT_URL = "https://escaping.work/chat/";
 
@@ -65,6 +68,9 @@
     modal.style.borderRadius = '8px';
     modal.style.boxShadow = '0 2px 6px rgba(0,0,0,0.2)';
     modal.style.padding = '12px 16px';
+    modal.style.right = '16px';
+    modal.style.maxWidth = 'calc(100vw - 32px)';
+    modal.style.boxSizing = 'border-box';
     modal.style.fontFamily = 'sans-serif';
     modal.style.fontSize = '14px';
     modal.style.zIndex = '99999';
@@ -111,3 +117,4 @@
     }
   }
 })();
+}

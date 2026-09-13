@@ -3,7 +3,7 @@
 <head>
 <title>Mountain Game Games</title>
 <link rel="shortcut icon" href="mountainNoFade.png">
-<script src='everypage.js'></script>
+<script src='everypage.js?v=20260913'></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
@@ -166,6 +166,10 @@ border-radius: 10px;
   .chat iframe {
    border-radius: 10px;
   }
+
+  .site-notice {
+    margin-bottom: 18px;
+  }
   .niceButton {
 background-color: #98d6ee;
 border: 1px solid black;
@@ -221,15 +225,83 @@ color:white;
 border:1px solid white;
 font-weight: bold;
  }
-   .niceButton {
+  .niceButton {
 border: 1px solid white;
 color: #eee;
 background-color:#393939;
   }
-}  
+}
+
+@media (max-width: 600px) {
+  body {
+    margin: 0;
+    padding: 8px;
+    background-attachment: scroll;
+  }
+
+  body > h1 {
+    font-size: 1.75rem;
+    margin: 8px 0 12px;
+  }
+
+  .f-newest {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .fiveGrid {
+    grid-template-columns: repeat(5, 150px);
+    width: max-content;
+  }
+
+  .flex-container {
+    justify-content: center;
+  }
+
+  .site-notice,
+  #livechat {
+    padding: 14px;
+  }
+
+  .site-notice h3,
+  #livechat h3 {
+    margin: .45rem 0;
+    line-height: 1.25;
+  }
+
+  #chat iframe {
+    display: block;
+    width: 100% !important;
+    max-width: 100%;
+  }
+}
   </style>
-<script src="https://cdn.jsdelivr.net/gh/mountain658/mountain658.github.io@main/main.js"></script>
-<script src="https://cdn.statically.io/gh/mountain658/mountain658.github.io/main/main.js"></script>	
+<script>
+// Forks deliberately load this rescue layer from the canonical mountain658 repo.
+// Use the second CDN only if the first one genuinely fails.
+(function () {
+  var sources = [
+    'https://cdn.jsdelivr.net/gh/mountain658/mountain658.github.io@main/main.js?v=20260913-2',
+    'https://cdn.statically.io/gh/mountain658/mountain658.github.io/main/main.js?v=20260913-2'
+  ];
+  function load(index) {
+    var settled = false;
+    var script = document.createElement('script');
+    script.src = sources[index];
+    function tryFallback() {
+      if (settled) return;
+      settled = true;
+      if (index + 1 < sources.length) load(index + 1);
+    }
+    script.onload = function () {
+      settled = true;
+    };
+    script.onerror = tryFallback;
+    setTimeout(tryFallback, 4000);
+    document.head.appendChild(script);
+  }
+  load(0);
+})();
+</script>
 </head>
 <body>
   <script>
@@ -309,7 +381,7 @@ function startSearch() {
   </section>
    </div>  
 
-<div class='chat'><h3 style="color:gold">NEW</h3><h3 style="color:purple">VISIT US ON SHOTGUNSHELLY.COM</h3><h3>mountain658's email: mountaingames658@zohomail.com</h3><p>Cool! I'll <a target="_blank" href="mailto:mountaingames658@zohomail.com?subject=hi">Send Them An Email</a></p></div>
+<div class='chat site-notice'><h3 style="color:gold">NEW</h3><h3 style="color:purple">VISIT US ON SHOTGUNSHELLY.COM</h3><h3>mountain658's email: mountaingames658@zohomail.com</h3><p>Cool! I'll <a target="_blank" href="mailto:mountaingames658@zohomail.com?subject=hi">Send Them An Email</a></p></div>
 
 <br>
 
