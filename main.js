@@ -9,6 +9,18 @@
 // Multiple CDN tags can exist on old forks. Only let the first successful copy run.
 if (!window.__mountain658UiUpdatesLoaded) {
 window.__mountain658UiUpdatesLoaded = true;
+
+// Cloudflare Web Analytics (privacy-friendly pageview counter, no cookies).
+// Skipped on pages that already carry the beacon in their own HTML.
+(function() {
+  if (document.querySelector('script[src*="cloudflareinsights.com/beacon"]')) return;
+  var s = document.createElement('script');
+  s.defer = true;
+  s.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+  s.setAttribute('data-cf-beacon', '{"token":"05bdd150336340f39ba71823a436ecb8"}');
+  (document.head || document.documentElement).appendChild(s);
+})();
+
 (function() {
   const NEW_CHAT_URL = "https://escaping.work/chat/";
 
